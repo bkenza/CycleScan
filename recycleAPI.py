@@ -4,20 +4,22 @@ from flask import request, jsonify
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
-recycle = ["paper",
+recycle = [
+    "paper",
     "soda", 
     "can", 
     "cardboard",
     "container",
     "glass",
-    "metal",
     "tin",
     "aluminum",
     "steel",
     "cans",
     "batteries",
-    "phones",
+    "battery",
+    "phone",
     "clothes",
+    "marker",
     "clothing",
     "softplastics",
     "electronic",
@@ -29,7 +31,44 @@ recycle = ["paper",
     "detergent",
     "lids",
     "metal",
-    "cerealbox"
+    "cerealbox",
+    "shoes",
+    "dvd",
+    "cd",
+    "disk",
+    "crayon",
+    "pen",
+    "razor",
+    "toothbrush",
+    "certridge",
+    "backpack",
+    "aerosol",
+    "antiperspirant",
+    "deodorant",
+    "book",
+    "carpet",
+    "computer",
+    "fireextinguisher",
+    "glue",
+    "hanger",
+    "card",
+    "nailclipper",
+    "key",
+    "leather",
+    "makeup",
+    "spring",
+    "notebook",
+    "stationary",
+    "paint",
+    "folder",
+    "bottlecap",
+    "plasticwrap",
+    "post-it",
+    "rug",
+    "dispenser",
+    "tinfoil",
+    "pencil",
+    "fabric"
 ]
 
 compost = [
@@ -63,7 +102,9 @@ compost = [
     "wood",
     "sawdust",
     "latex",
-    "feather"
+    "feather",
+    "food",
+    "eggcartons"
 ]
 
 trash = [
@@ -84,7 +125,8 @@ trash = [
     "plastictoys",
     "sportsequipment",
     "eggcartons",
-    "light bulbs"
+    "light bulbs",
+    "magnet"
 ]
 
 @app.route('/', methods = ['GET'])
@@ -93,17 +135,17 @@ def home():
 
 @app.route('/api/recycle/all', methods=['GET'])
 def api_recycle():
-    return jsonify(recycle)
+    return jsonify(sorted(recycle))
 
 @app.route('/api/compost/all', methods=['GET'])
 def api_compost():
-    return jsonify(compost)
+    return jsonify(sorted(compost))
 
 @app.route('/api/trash/all', methods=['GET'])
 def api_trash():
-    return jsonify(trash)
+    return jsonify(sorted(trash))
 
-@app.route('/api/resources/object', methods=['GET']) #add ?obj='object name' to see what needs to be done with the object
+@app.route('/api/search/object', methods=['GET']) #add ?obj='object name' to see what needs to be done with the object
 def api_action():
     if 'obj' in request.args:
         obj = (request.args.get('obj').lower())
