@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     width: "100%",
-    height: "55%",
+    height: "57%",
     backgroundColor: "#FFFBF4",
     display: "flex",
     flexDirection: "column",
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: "100%",
-    height: "45%",
+    height: "43%",
   },
   img: {
     width: "100%",
@@ -98,5 +98,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#000000",
     textAlign: "center",
+    marginBottom: 5,
   },
 });
