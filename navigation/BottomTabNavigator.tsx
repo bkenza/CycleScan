@@ -16,7 +16,13 @@ export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
       initialRouteName="Home"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
+      tabBarOptions={{
+        activeTintColor: Colors[colorScheme].tint,
+        style: {
+          backgroundColor: '#456658',
+          shadowColor: 'transparent'
+        }
+      }}>
       <BottomTab.Screen
         name="Home"
         component={HomeNavigator}
@@ -47,7 +53,12 @@ function HomeNavigator() {
       <HomeStack.Screen
         name="Home"
         component={HomeScreen}
-        options={{ headerTitle: 'Home' }}
+        options={{
+          headerTitle: '', headerStyle: {
+            backgroundColor: '#FFFBF4',
+            shadowColor: 'transparent'
+          },
+        }}
       />
     </HomeStack.Navigator>
   );
@@ -61,7 +72,13 @@ function ScannerNavigator() {
       <ScannerStack.Screen
         name="Scanner"
         component={ScannerScreen}
-        options={{ headerTitle: 'Scanner' }}
+        options={{
+          headerTitle: 'Scanner',
+          headerStyle: {
+            backgroundColor: '#456658',
+            shadowColor: 'transparent'
+          },
+        }}
       />
     </ScannerStack.Navigator>
   );
