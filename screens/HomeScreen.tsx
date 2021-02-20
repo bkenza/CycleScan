@@ -11,17 +11,18 @@ export default function HomeScreen(props: { navigation: any }) {
     YesevaOne_400Regular,
   });
 
-  let fontSize = 24;
-
   if (!fontsLoaded) {
     return <AppLoading />;
   } else {
     return (
       <View style={styles.container}>
         <View style={styles.textContainer}>
-          <Text style={styles.title}>CycleScan</Text>
+          <Text style={styles.title}>
+            <Text style={styles.titleOne}>Cycle</Text>
+            <Text style={styles.titleTwo}>Scan</Text>
+          </Text>
           <Text style={styles.fillerText}>
-            Need help determining if an item is recyclable?
+            Need help determining if an {"\n"}item is recyclable?
           </Text>
           <TouchableOpacity>
             <View style={styles.scanButtonContainer}>
@@ -54,39 +55,48 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     width: "100%",
-    height: "50%",
+    height: "55%",
     backgroundColor: "#FFFBF4",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
   title: {
-    fontSize: 50,
+    fontSize: 65,
     fontFamily: "YesevaOne_400Regular",
-    color: "#000000",
+    textAlign: "center",
+    marginBottom: 5,
+    marginTop: "auto",
+  },
+  titleOne: {
+    color: "#456658",
+  },
+  titleTwo: {
+    color: "#9FC991",
   },
   scanButtonContainer: {
-    marginTop: 50,
+    marginTop: 30,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#84B286",
     borderRadius: 100,
     fontSize: 18,
     width: 160,
-    height: 50,
+    height: 46,
     fontWeight: "bold",
     color: "#FFFBF4",
   },
   imageContainer: {
     width: "100%",
-    height: "50%",
+    height: "45%",
   },
   img: {
     width: "100%",
     height: "100%",
   },
   fillerText: {
-    fontSize: 19,
+    fontSize: 16,
     color: "#000000",
+    textAlign: "center",
   },
 });
