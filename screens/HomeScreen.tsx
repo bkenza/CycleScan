@@ -32,6 +32,24 @@ export default function HomeScreen(props: { navigation: any }) {
               ></Button>
             </View>
           </TouchableOpacity>
+          <TouchableOpacity>
+            <View style={styles.scanButtonContainer}>
+              <Button
+                title="Sign in"
+                color="#FFFBF4"
+                onPress={() => navigation.navigate("Scanner")}
+              ></Button>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <View style={styles.scanButtonContainer}>
+              <Button
+                title="Sign up"
+                color="#FFFBF4"
+                onPress={() => navigation.navigate("Scanner")}
+              ></Button>
+            </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.imageContainer}>
           <Image
@@ -66,7 +84,7 @@ const styles = StyleSheet.create({
     color: "#000000",
   },
   scanButtonContainer: {
-    marginTop: 50,
+    marginTop: 30,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#84B286",
