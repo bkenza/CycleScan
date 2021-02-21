@@ -52,7 +52,7 @@ export default function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="Profile"
-        component={ProfileNavigator}
+        component={ProfileScreen}
         options={{
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="person-circle-outline" color={color} />
