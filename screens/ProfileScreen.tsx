@@ -27,7 +27,6 @@ export default function ProfileScreen(props: { navigation: any }) {
             <Text style={styles.titleOne}>Cycle</Text>
             <Text style={styles.titleTwo}>Scan</Text>
           </Text>
-          <Text style={styles.fillerText}>Sustainability</Text>
           <Text style={styles.fillerText}>Profile Page</Text>
         </View>
         <View style={styles.imageContainer}>
