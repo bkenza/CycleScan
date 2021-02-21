@@ -6,12 +6,12 @@ import {
   Image,
   TextInput,
   Alert,
+  Keyboard
 } from "react-native";
 import { Text, View } from "../components/Themed";
 import AppLoading from "expo-app-loading";
 import { Signin } from '../utils/auth';
 import { useFonts, YesevaOne_400Regular } from "@expo-google-fonts/yeseva-one";
-import { Keyboard } from 'react-native'
 
 export default function SignInScreen(props: { navigation: any }) {
   let { navigation } = props;
@@ -23,6 +23,9 @@ export default function SignInScreen(props: { navigation: any }) {
     YesevaOne_400Regular,
   });
 
+  /**
+   * Function that uses the user input (email, password) to log users in via firebase
+   */
   const handleSignIn = async (e) => {
     try {
       await Signin(email, password);
@@ -30,7 +33,7 @@ export default function SignInScreen(props: { navigation: any }) {
       Keyboard.dismiss();
     } catch (e) {
       console.log(e);
-      Alert.alert(e)
+      Alert.alert(e.toString())
     }
   }
 
@@ -46,8 +49,23 @@ export default function SignInScreen(props: { navigation: any }) {
           </Text>
           <Text style={styles.fillerText}>Sustainability</Text>
           <View style={styles.inputsContainer}>
-            <TextInput style={styles.inputSpace} textContentType='emailAddress' placeholderTextColor='#9FC991' placeholder='Email' value={email} onChangeText={(em) => { setEmail(em) }} />
-            <TextInput style={styles.inputSpace} secureTextEntry={true} textContentType='password' placeholderTextColor='#9FC991' placeholder='Password' value={password} onChangeText={(pass) => { setPassword(pass) }} />
+            <TextInput
+              clearTextOnFocus={true}
+              style={styles.inputSpace}
+              textContentType='emailAddress'
+              placeholderTextColor='#9FC991'
+              placeholder='Email'
+              value={email}
+              onChangeText={(em) => { setEmail(em) }} />
+            <TextInput
+              clearTextOnFocus={true}
+              style={styles.inputSpace}
+              secureTextEntry={true}
+              textContentType='password'
+              placeholderTextColor='#9FC991'
+              placeholder='Password'
+              value={password}
+              onChangeText={(pass) => { setPassword(pass) }} />
           </View>
           <TouchableOpacity>
             <View style={styles.scanButtonContainer}>
