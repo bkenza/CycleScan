@@ -11,3 +11,9 @@ web-build/
 
 # macOS
 .DS_Store
+
+# lock file
+yarn.lock
+
+# env variables
+.env
