@@ -4,7 +4,7 @@ Mobile application that determines whether an object is recyclable using object 
 
 ## Environment set up
 
-1. Install the Expo command line tools by running the following command: ``` npm install -g explo-cli ``` 
+1. Install the Expo command line tools by running the following command: ``` npm install -g expo-cli ``` 
 
 2. Clone the repository
 

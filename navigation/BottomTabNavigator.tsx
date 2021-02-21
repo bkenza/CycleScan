@@ -111,7 +111,13 @@ function ScannerNavigator() {
       <ScannerStack.Screen
         name="Scanner"
         component={ScannerScreen}
-        options={{ headerTitle: "Scanner" }}
+        options={{
+          headerTitle: 'Scanner',
+          headerStyle: {
+            backgroundColor: '#456658',
+            shadowColor: 'transparent'
+          },
+        }}
       />
     </ScannerStack.Navigator>
   );
