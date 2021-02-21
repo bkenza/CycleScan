@@ -7,11 +7,13 @@ import useColorScheme from "../hooks/useColorScheme";
 import HomeScreen from "../screens/HomeScreen";
 import ScannerScreen from "../screens/ScannerScreen";
 import SignInScreen from "../screens/SignInScreen";
+import SignUpScreen from "../screens/SignUpScreen";
 import {
   BottomTabParamList,
   TabOneParamList,
   TabTwoParamList,
   TabThreeParamList,
+  TabFourParamList
 } from "../types";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -59,6 +61,7 @@ function TabBarIcon(props: {
 
 const HomeStack = createStackNavigator<TabOneParamList>();
 const SignInStack = createStackNavigator<TabThreeParamList>();
+const SignUpStack = createStackNavigator<TabFourParamList>();
 
 function HomeNavigator() {
   return (
@@ -79,6 +82,17 @@ function HomeNavigator() {
         component={SignInScreen}
         options={{
           headerTitle: "Sign In",
+          headerStyle: {
+            backgroundColor: "#456658",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <SignUpStack.Screen
+        name="SignUp"
+        component={SignUpScreen}
+        options={{
+          headerTitle: "Sign Up",
           headerStyle: {
             backgroundColor: "#456658",
             shadowColor: "transparent",

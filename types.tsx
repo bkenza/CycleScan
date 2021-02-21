@@ -19,3 +19,7 @@ export type TabTwoParamList = {
 export type TabThreeParamList = {
   SignIn: undefined;
 };
+
+export type TabFourParamList = {
+  SignUp: undefined;
+};

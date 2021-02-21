@@ -21,6 +21,11 @@ export default {
               SignInScreen: "three",
             },
           },
+          SignUn: {
+            screens: {
+              SignUpScreen: "four",
+            },
+          },
         },
       },
       NotFound: "*",
