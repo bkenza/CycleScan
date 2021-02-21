@@ -100,25 +100,36 @@ export default function ScannerScreen() {
   const displayResult = (results: []) => {
     let predictions: string[] = [];
     results.map((result: any) => {
-      console.log(result.description);
+      // console.log(result.description);
       predictions.push(result.description);
       return predictions;
     })
     setImagePrediction(predictions[0]);
     actionTaken(predictions[0]);
   }
-  
+
   async function actionTaken(obj: string) {
-    var apiURL = "http://127.0.0.1:5000/api/search/object?obj=" + obj;
     try {
-        let res = await fetch(apiURL); //fetch is doesn't get read. Also tried many other methods including using .then()
-        var data = await res.json();
+      let res = await fetch(
+        `https://GargantuanAffectionateCertifications.bkenza.repl.co/api/search/object?obj=${obj}`,
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          },
+          method: "GET",
+        }
+      );
+      var data = await res.json();
+      if (data[0].action !== undefined) {
+        Alert.alert(obj + ' is ' + data[0].action + '.');
+      }
     } catch (error) {
-        console.log(error);
+      Alert.alert('Sorry, I am not sure if ' + obj + ' is recyclable.');
+      console.log(error);
     }
-    Alert.alert(obj + ' is ' + data[0].action + '.');
   }
-  
+
   /**
    * Function that allows users to retake a picture
    */
