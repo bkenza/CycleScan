@@ -108,19 +108,16 @@ export default function ScannerScreen() {
     actionTaken(predictions[0]);
   }
   
-  function actionTaken(obj) {
-    obj = obj.toLowerCase();
+  async function actionTaken(obj: string) {
     var apiURL = "http://127.0.0.1:5000/api/search/object?obj=" + obj;
-
-    var request = new XMLHttpRequest();
-    request.open('GET', apiURL, true);
-    request.onload = function () {
-      var data = this.response;
+    try {
+        let res = await fetch(apiURL);
+        var data = await res.json();
+    } catch (error) {
+        console.log(error);
     }
-    request.send();
-
     Alert.alert(obj + ' is ' + data + '.');
-    } 
+  }
   
   /**
    * Function that allows users to retake a picture
