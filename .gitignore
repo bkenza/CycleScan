@@ -8,7 +8,14 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
+yarn-error.log
 yarn.lock
 
 # macOS
 .DS_Store
+
+# lock file
+yarn.lock
+
+# env variables
+.env
