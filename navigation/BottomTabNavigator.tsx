@@ -8,12 +8,14 @@ import HomeScreen from "../screens/HomeScreen";
 import ScannerScreen from "../screens/ScannerScreen";
 import SignInScreen from "../screens/SignInScreen";
 import SignUpScreen from "../screens/SignUpScreen";
+import ProfileScreen from "../screens/ProfileScreen";
 import {
   BottomTabParamList,
   TabOneParamList,
   TabTwoParamList,
   TabThreeParamList,
-  TabFourParamList
+  TabFourParamList,
+  TabFiveParamList,
 } from "../types";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -48,6 +50,15 @@ export default function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="camera" color={color} />,
         }}
       />
+      <BottomTab.Screen
+        name="Profile"
+        component={ProfileNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="person-circle-outline" color={color} />
+          ),
+        }}
+      />
     </BottomTab.Navigator>
   );
 }
@@ -62,6 +73,7 @@ function TabBarIcon(props: {
 const HomeStack = createStackNavigator<TabOneParamList>();
 const SignInStack = createStackNavigator<TabThreeParamList>();
 const SignUpStack = createStackNavigator<TabFourParamList>();
+const ProfileStack = createStackNavigator<TabFiveParamList>();
 
 function HomeNavigator() {
   return (
@@ -103,6 +115,22 @@ function HomeNavigator() {
   );
 }
 
+function ProfileNavigator() {
+  return (
+    <ProfileStack.Screen
+      name="Profile"
+      component={ProfileScreen}
+      options={{
+        headerTitle: "Profile",
+        headerStyle: {
+          backgroundColor: "#456658",
+          shadowColor: "transparent",
+        },
+      }}
+    />
+  );
+}
+
 const ScannerStack = createStackNavigator<TabTwoParamList>();
 
 function ScannerNavigator() {
@@ -112,10 +140,10 @@ function ScannerNavigator() {
         name="Scanner"
         component={ScannerScreen}
         options={{
-          headerTitle: 'Scanner',
+          headerTitle: "Scanner",
           headerStyle: {
-            backgroundColor: '#456658',
-            shadowColor: 'transparent'
+            backgroundColor: "#456658",
+            shadowColor: "transparent",
           },
         }}
       />

@@ -26,6 +26,11 @@ export default {
               SignUpScreen: "four",
             },
           },
+          Profile: {
+            screens: {
+              ProfileScreen: "five",
+            },
+          },
         },
       },
       NotFound: "*",
