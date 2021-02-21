@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Button,
@@ -13,9 +13,20 @@ import { useFonts, YesevaOne_400Regular } from "@expo-google-fonts/yeseva-one";
 export default function SignInScreen(props: { navigation: any }) {
   let { navigation } = props;
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   let [fontsLoaded] = useFonts({
     YesevaOne_400Regular,
   });
+
+  const handleEmail = (e: any) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePassword = (e: any) => {
+    setPassword(e.target.value);
+  };
 
   if (!fontsLoaded) {
     return <AppLoading />;
@@ -29,8 +40,8 @@ export default function SignInScreen(props: { navigation: any }) {
           </Text>
           <Text style={styles.fillerText}>Sustainability</Text>
           <View style={styles.inputsContainer}>
-            <TextInput style={styles.inputSpace} value="Email" />
-            <TextInput style={styles.inputSpace} value="Password" />
+            <TextInput style={styles.inputSpace} textContentType='emailAddress' placeholderTextColor='#9FC991' placeholder='Email' value={email} onChange={handleEmail} />
+            <TextInput style={styles.inputSpace} textContentType='password' placeholderTextColor='#9FC991' placeholder='Password' value={password} onChange={handlePassword} />
           </View>
           <TouchableOpacity>
             <View style={styles.scanButtonContainer}>
