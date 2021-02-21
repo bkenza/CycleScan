@@ -11,6 +11,8 @@ export default function HomeScreen(props: { navigation: any }) {
     YesevaOne_400Regular,
   });
 
+  let fontSize = 24;
+
   if (!fontsLoaded) {
     return <AppLoading />;
   } else {
@@ -109,7 +111,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     fontSize: 18,
     width: 160,
-    height: 46,
+    height: 50,
     fontWeight: "bold",
     color: "#FFFBF4",
   },
