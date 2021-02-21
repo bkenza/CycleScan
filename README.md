@@ -1,6 +1,17 @@
-# CycleScan
+# SD Hacks 2021: CycleScan
 
-Mobile application that determines whether an object is recyclable using object recognition.
+Cross platform mobile application that determines whether an object is recyclable, compostable or neither using object recognition. Built for SD Hacks 2021.
+
+## Technologies used
+
+1. React Native
+2. Typescript
+3. Javascript
+4. Python
+5. Flask
+6. Google Vision API
+7. Firebase
+8. Repl.it for API hosting
 
 ## Environment set up
 
