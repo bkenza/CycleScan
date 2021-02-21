@@ -28,3 +28,13 @@ Mobile application that determines whether an object is recyclable using object 
 ![alt text](https://github.com/bkenza/CycleScan/blob/master/assets/figma/6si.png)
 ![alt text](https://github.com/bkenza/CycleScan/blob/master/assets/figma/7su.png)
 ![alt text](https://github.com/bkenza/CycleScan/blob/master/assets/figma/8profile.png)
+
+## Link to the CycleScan API that we built in order to determine the recyclability/compostability of items
+
+https://GargantuanAffectionateCertifications.bkenza.repl.co
+
+### Note
+
+The code can be found in this repository!
+
+
