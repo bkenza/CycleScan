@@ -6,9 +6,6 @@ import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import HomeScreen from "../screens/HomeScreen";
 import ScannerScreen from "../screens/ScannerScreen";
-<<<<<<< Updated upstream
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from "../types";
-=======
 import SignInScreen from "../screens/SignInScreen";
 import {
   BottomTabParamList,
@@ -16,7 +13,6 @@ import {
   TabTwoParamList,
   TabThreeParamList,
 } from "../types";
->>>>>>> Stashed changes
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -26,9 +22,6 @@ export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
       initialRouteName="Home"
-<<<<<<< Updated upstream
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
-=======
       tabBarOptions={{
         activeTintColor: Colors[colorScheme].tint,
         style: {
@@ -36,7 +29,6 @@ export default function BottomTabNavigator() {
           shadowColor: "transparent",
         },
       }}
->>>>>>> Stashed changes
     >
       <BottomTab.Screen
         name="Home"
@@ -74,9 +66,6 @@ function HomeNavigator() {
       <HomeStack.Screen
         name="Home"
         component={HomeScreen}
-<<<<<<< Updated upstream
-        options={{ headerTitle: "CycleScan" }}
-=======
         options={{
           headerTitle: "",
           headerStyle: {
@@ -95,7 +84,6 @@ function HomeNavigator() {
             shadowColor: "transparent",
           },
         }}
->>>>>>> Stashed changes
       />
     </HomeStack.Navigator>
   );
@@ -109,17 +97,7 @@ function ScannerNavigator() {
       <ScannerStack.Screen
         name="Scanner"
         component={ScannerScreen}
-<<<<<<< Updated upstream
         options={{ headerTitle: "Scanner" }}
-=======
-        options={{
-          headerTitle: "Scanner",
-          headerStyle: {
-            backgroundColor: "#456658",
-            shadowColor: "transparent",
-          },
-        }}
->>>>>>> Stashed changes
       />
     </ScannerStack.Navigator>
   );

@@ -33,8 +33,6 @@ export default function HomeScreen(props: { navigation: any }) {
               ></Button>
             </View>
           </TouchableOpacity>
-<<<<<<< Updated upstream
-=======
           <View style={styles.signButtons}>
             <TouchableOpacity>
               <View style={styles.signButtonContainer}>
@@ -55,7 +53,6 @@ export default function HomeScreen(props: { navigation: any }) {
               </View>
             </TouchableOpacity>
           </View>
->>>>>>> Stashed changes
         </View>
         <View style={styles.imageContainer}>
           <Image
@@ -78,11 +75,7 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     width: "100%",
-<<<<<<< Updated upstream
-    height: "57%",
-=======
     height: "55%",
->>>>>>> Stashed changes
     backgroundColor: "#FFFBF4",
     display: "flex",
     flexDirection: "column",
@@ -98,15 +91,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   title: {
-<<<<<<< Updated upstream
-    fontSize: 65,
-    fontFamily: "YesevaOne_400Regular",
-    textAlign: "center",
-    marginBottom: 5,
-=======
     fontSize: 55,
     fontFamily: "YesevaOne_400Regular",
->>>>>>> Stashed changes
     marginTop: "auto",
   },
   titleOne: {
@@ -141,27 +127,16 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: "100%",
-<<<<<<< Updated upstream
-    height: "43%",
-=======
     height: "45%",
->>>>>>> Stashed changes
   },
   img: {
     width: "100%",
     height: "100%",
   },
   fillerText: {
-<<<<<<< Updated upstream
-    fontSize: 16,
-    color: "#000000",
-    textAlign: "center",
-    marginBottom: 5,
-=======
     marginTop: 10,
     fontSize: 16,
     color: "#000000",
     textAlign: "center",
->>>>>>> Stashed changes
   },
 });
