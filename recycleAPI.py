@@ -136,15 +136,15 @@ def home():
     return "<h1>CycleScan API</h1>"
 
 @app.route('/api/recycle/all', methods=['GET'])
-def recycle():
+def _recycle():
     return jsonify(sorted(recycle))
 
 @app.route('/api/compost/all', methods=['GET'])
-def compost():
+def _compost():
     return jsonify(sorted(compost))
 
 @app.route('/api/trash/all', methods=['GET'])
-def trash():
+def _trash():
     return jsonify(sorted(trash))
 
 @app.route('/api/search/object', methods=['GET']) #add ?obj='object name' to see what needs to be done with the object
