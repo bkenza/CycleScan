@@ -100,12 +100,34 @@ export default function ScannerScreen() {
   const displayResult = (results: []) => {
     let predictions: string[] = [];
     results.map((result: any) => {
-      console.log(result.description);
+      // console.log(result.description);
       predictions.push(result.description);
       return predictions;
     })
     setImagePrediction(predictions[0]);
-    Alert.alert(predictions[0] + ' is recyclable');
+    actionTaken(predictions[0]);
+  }
+
+  async function actionTaken(obj: string) {
+    try {
+      let res = await fetch(
+        `https://GargantuanAffectionateCertifications.bkenza.repl.co/api/search/object?obj=${obj}`,
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          },
+          method: "GET",
+        }
+      );
+      var data = await res.json();
+      if (data[0].action !== undefined) {
+        Alert.alert(obj + ' is ' + data[0].action + '.');
+      }
+    } catch (error) {
+      Alert.alert('Sorry, I am not sure if ' + obj + ' is recyclable.');
+      console.log(error);
+    }
   }
 
   /**
