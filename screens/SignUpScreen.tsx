@@ -5,10 +5,13 @@ import {
   TouchableOpacity,
   Image,
   TextInput,
+  Alert,
 } from "react-native";
 import { Text, View } from "../components/Themed";
 import AppLoading from "expo-app-loading";
 import { useFonts, YesevaOne_400Regular } from "@expo-google-fonts/yeseva-one";
+import { Signup } from "../utils/auth";
+import { Keyboard } from 'react-native'
 
 export default function SignUpScreen(props: { navigation: any }) {
   let { navigation } = props;
@@ -20,13 +23,16 @@ export default function SignUpScreen(props: { navigation: any }) {
     YesevaOne_400Regular,
   });
 
-  const handleEmail = (e: any) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePassword = (e: any) => {
-    setPassword(e.target.value);
-  };
+  const handleSignUp = async () => {
+    try {
+      await Signup(email, password);
+      Alert.alert('Signed up successfully!');
+      navigation.navigate('Scanner');
+      Keyboard.dismiss();
+    } catch (e) {
+      Alert.alert(e);
+    }
+  }
   if (!fontsLoaded) {
     return <AppLoading />;
   } else {
@@ -39,21 +45,21 @@ export default function SignUpScreen(props: { navigation: any }) {
           </Text>
           <Text style={styles.fillerText}>Sustainability</Text>
           <View style={styles.inputsContainer}>
-            <TextInput style={styles.inputSpace} textContentType='emailAddress' placeholderTextColor='#9FC991' placeholder='Email' value={email} onChange={handleEmail} />
-            <TextInput style={styles.inputSpace} textContentType='password' placeholderTextColor='#9FC991' placeholder='Password' value={password} onChange={handlePassword} />
+            <TextInput style={styles.inputSpace} textContentType='emailAddress' placeholderTextColor='#9FC991' placeholder='Email' value={email} onChangeText={(em) => { setEmail(em) }} />
+            <TextInput style={styles.inputSpace} secureTextEntry={true} textContentType='password' placeholderTextColor='#9FC991' placeholder='Password' value={password} onChangeText={(pass) => { setPassword(pass) }} />
           </View>
           <TouchableOpacity>
             <View style={styles.scanButtonContainer}>
               <Button
                 title="Sign Up"
                 color="#FFFBF4"
-                onPress={() => navigation.navigate("Scanner")}
+                onPress={handleSignUp}
               ></Button>
             </View>
           </TouchableOpacity>
           <Text style={styles.toSignIn}>
             <Text style={styles.toSignInOne}>Already have an account?  </Text>
-            <Text style={styles.toSignInTwo}>Sign In!</Text>
+            <Text style={styles.toSignInTwo} onPress={() => navigation.navigate("SignIn")}>Sign In!</Text>
           </Text>
         </View>
         <View style={styles.imageContainer}>
