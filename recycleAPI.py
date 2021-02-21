@@ -68,7 +68,10 @@ recycle = [
     "dispenser",
     "tinfoil",
     "pencil",
-    "fabric"
+    "fabric",
+    "umbrella",
+    "tire",
+    "wheel"
 ]
 
 compost = [
@@ -76,7 +79,7 @@ compost = [
     "fruit", 
     "banana",
     "leaves",
-    "hay:"
+    "hay",
     "wine",
     "drycatfood",
     "drydogfood",
@@ -124,25 +127,24 @@ trash = [
     "chemicals",
     "plastictoys",
     "sportsequipment",
-    "eggcartons",
     "light bulbs",
     "magnet"
 ]
 
 @app.route('/', methods = ['GET'])
 def home():
-    return "<h1>CycleScan</h1>"
+    return "<h1>CycleScan API</h1>"
 
 @app.route('/api/recycle/all', methods=['GET'])
-def api_recycle():
+def recycle():
     return jsonify(sorted(recycle))
 
 @app.route('/api/compost/all', methods=['GET'])
-def api_compost():
+def compost():
     return jsonify(sorted(compost))
 
 @app.route('/api/trash/all', methods=['GET'])
-def api_trash():
+def trash():
     return jsonify(sorted(trash))
 
 @app.route('/api/search/object', methods=['GET']) #add ?obj='object name' to see what needs to be done with the object
@@ -152,13 +154,12 @@ def api_action():
     else:
         return "Error: No object field provided. Please specify an object."
 
-    results = []
     if obj in recycle:
-        return "Recycle"
+        return jsonify("Recyclable")
     elif obj in compost:
-        return "Compost"
+        return jsonify("Compostable")
     elif obj in trash:
-        return "Trash"
+        return jsonify("Trash")
     else:
         return "Object not found"
 
