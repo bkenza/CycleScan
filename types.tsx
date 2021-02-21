@@ -15,3 +15,7 @@ export type TabOneParamList = {
 export type TabTwoParamList = {
   Scanner: undefined;
 };
+
+export type TabThreeParamList = {
+  SignIn: undefined;
+};

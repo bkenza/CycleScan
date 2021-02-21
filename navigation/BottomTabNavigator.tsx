@@ -6,7 +6,17 @@ import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import HomeScreen from "../screens/HomeScreen";
 import ScannerScreen from "../screens/ScannerScreen";
+<<<<<<< Updated upstream
 import { BottomTabParamList, TabOneParamList, TabTwoParamList } from "../types";
+=======
+import SignInScreen from "../screens/SignInScreen";
+import {
+  BottomTabParamList,
+  TabOneParamList,
+  TabTwoParamList,
+  TabThreeParamList,
+} from "../types";
+>>>>>>> Stashed changes
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -16,7 +26,17 @@ export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
       initialRouteName="Home"
+<<<<<<< Updated upstream
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
+=======
+      tabBarOptions={{
+        activeTintColor: Colors[colorScheme].tint,
+        style: {
+          backgroundColor: "#456658",
+          shadowColor: "transparent",
+        },
+      }}
+>>>>>>> Stashed changes
     >
       <BottomTab.Screen
         name="Home"
@@ -46,6 +66,7 @@ function TabBarIcon(props: {
 }
 
 const HomeStack = createStackNavigator<TabOneParamList>();
+const SignInStack = createStackNavigator<TabThreeParamList>();
 
 function HomeNavigator() {
   return (
@@ -53,7 +74,28 @@ function HomeNavigator() {
       <HomeStack.Screen
         name="Home"
         component={HomeScreen}
+<<<<<<< Updated upstream
         options={{ headerTitle: "CycleScan" }}
+=======
+        options={{
+          headerTitle: "",
+          headerStyle: {
+            backgroundColor: "#FFFBF4",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+      <SignInStack.Screen
+        name="SignIn"
+        component={SignInScreen}
+        options={{
+          headerTitle: "Sign In",
+          headerStyle: {
+            backgroundColor: "#456658",
+            shadowColor: "transparent",
+          },
+        }}
+>>>>>>> Stashed changes
       />
     </HomeStack.Navigator>
   );
@@ -67,8 +109,36 @@ function ScannerNavigator() {
       <ScannerStack.Screen
         name="Scanner"
         component={ScannerScreen}
+<<<<<<< Updated upstream
         options={{ headerTitle: "Scanner" }}
+=======
+        options={{
+          headerTitle: "Scanner",
+          headerStyle: {
+            backgroundColor: "#456658",
+            shadowColor: "transparent",
+          },
+        }}
+>>>>>>> Stashed changes
       />
     </ScannerStack.Navigator>
+  );
+}
+
+function SignInNavigator() {
+  return (
+    <SignInStack.Navigator>
+      <SignInStack.Screen
+        name="SignIn"
+        component={SignInScreen}
+        options={{
+          headerTitle: "Sign In",
+          headerStyle: {
+            backgroundColor: "#456658",
+            shadowColor: "transparent",
+          },
+        }}
+      />
+    </SignInStack.Navigator>
   );
 }
