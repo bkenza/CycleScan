@@ -105,9 +105,23 @@ export default function ScannerScreen() {
       return predictions;
     })
     setImagePrediction(predictions[0]);
-    Alert.alert(predictions[0] + ' is recyclable');
+    actionTaken(predictions[0]);
   }
+  
+  function actionTaken(obj) {
+    obj = obj.toLowerCase();
+    var apiURL = "http://127.0.0.1:5000/api/search/object?obj=" + obj;
 
+    var request = new XMLHttpRequest();
+    request.open('GET', apiURL, true);
+    request.onload = function () {
+      var data = this.response;
+    }
+    request.send();
+
+    Alert.alert(obj + ' is ' + data + '.');
+    } 
+  
   /**
    * Function that allows users to retake a picture
    */
