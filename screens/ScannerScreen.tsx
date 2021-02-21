@@ -111,12 +111,12 @@ export default function ScannerScreen() {
   async function actionTaken(obj: string) {
     var apiURL = "http://127.0.0.1:5000/api/search/object?obj=" + obj;
     try {
-        let res = await fetch(apiURL);
+        let res = await fetch(apiURL); //fetch is doesn't get read. Also tried many other methods including using .then()
         var data = await res.json();
     } catch (error) {
         console.log(error);
     }
-    Alert.alert(obj + ' is ' + data + '.');
+    Alert.alert(obj + ' is ' + data[0].action + '.');
   }
   
   /**
