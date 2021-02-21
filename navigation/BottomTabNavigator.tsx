@@ -150,21 +150,3 @@ function ScannerNavigator() {
     </ScannerStack.Navigator>
   );
 }
-
-function SignInNavigator() {
-  return (
-    <SignInStack.Navigator>
-      <SignInStack.Screen
-        name="SignIn"
-        component={SignInScreen}
-        options={{
-          headerTitle: "Sign In",
-          headerStyle: {
-            backgroundColor: "#456658",
-            shadowColor: "transparent",
-          },
-        }}
-      />
-    </SignInStack.Navigator>
-  );
-}

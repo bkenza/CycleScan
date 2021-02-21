@@ -23,6 +23,9 @@ export default function SignUpScreen(props: { navigation: any }) {
     YesevaOne_400Regular,
   });
 
+  /**
+   * Function that uses the user input (email, password) to register users via firebase
+   */
   const handleSignUp = async () => {
     try {
       await Signup(email, password);
@@ -30,7 +33,7 @@ export default function SignUpScreen(props: { navigation: any }) {
       navigation.navigate('Scanner');
       Keyboard.dismiss();
     } catch (e) {
-      Alert.alert(e);
+      Alert.alert(e.toString())
     }
   }
   if (!fontsLoaded) {
@@ -45,8 +48,23 @@ export default function SignUpScreen(props: { navigation: any }) {
           </Text>
           <Text style={styles.fillerText}>Sustainability</Text>
           <View style={styles.inputsContainer}>
-            <TextInput style={styles.inputSpace} textContentType='emailAddress' placeholderTextColor='#9FC991' placeholder='Email' value={email} onChangeText={(em) => { setEmail(em) }} />
-            <TextInput style={styles.inputSpace} secureTextEntry={true} textContentType='password' placeholderTextColor='#9FC991' placeholder='Password' value={password} onChangeText={(pass) => { setPassword(pass) }} />
+            <TextInput
+              clearTextOnFocus={true}
+              style={styles.inputSpace}
+              textContentType='emailAddress'
+              placeholderTextColor='#9FC991'
+              placeholder='Email'
+              value={email}
+              onChangeText={(em) => { setEmail(em) }} />
+            <TextInput
+              clearTextOnFocus={true}
+              style={styles.inputSpace}
+              secureTextEntry={true}
+              textContentType='password'
+              placeholderTextColor='#9FC991'
+              placeholder='Password'
+              value={password}
+              onChangeText={(pass) => { setPassword(pass) }} />
           </View>
           <TouchableOpacity>
             <View style={styles.scanButtonContainer}>

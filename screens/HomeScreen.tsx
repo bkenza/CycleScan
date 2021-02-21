@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleSheet, Button, TouchableOpacity, Image } from "react-native";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, Button, TouchableOpacity, Image, Alert } from "react-native";
 import { Text, View } from "../components/Themed";
 import AppLoading from "expo-app-loading";
 import { useFonts, YesevaOne_400Regular } from "@expo-google-fonts/yeseva-one";
@@ -10,8 +10,6 @@ export default function HomeScreen(props: { navigation: any }) {
   let [fontsLoaded] = useFonts({
     YesevaOne_400Regular,
   });
-
-  let fontSize = 24;
 
   if (!fontsLoaded) {
     return <AppLoading />;
@@ -62,7 +60,7 @@ export default function HomeScreen(props: { navigation: any }) {
             style={styles.img}
           />
         </View>
-      </View>
+      </View >
     );
   }
 }
